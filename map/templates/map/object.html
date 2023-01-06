@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} Map {% endblock %}
+{% block content %}
+<div class="container-fluid py-4">
+      <div class="row gy-3">
+        <div class="col-2"></div>
+        <div class="col-8 position-relative">
+            <img src="{% static 'map/img/areas.jpg' %}" class="img-fluid" alt="...">
+            <a class="btn btn-danger position-absolute" style="top:30%; left:50%" href="{% url 'map_area' obj='Obj-B' area='Area-3' %}"><i class="bi bi-geo-alt-fill"></i>Area-3</a>
+            <a class="btn btn-success position-absolute" style="top:90%; left:30%" href="{% url 'map_area' obj='Obj-A' area='Area-1'%}"><i class="bi bi-geo-alt-fill"></i>Area-1</a>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+{% endblock %}

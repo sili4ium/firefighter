@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} {{ Title|default:'lala'}} {% endblock %}
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row gy-3">
+        {% include 'includes/note_info.html' %}
+        <div class="col-9 justify-content-end">
+            <div class="row p-4">
+                <div class="card border-0 p-0 m-0" style="width: 70vw;">
+
+                    <div class="card-body rounded-top d-flex justify-content-end align-items-center bg-dark bg-gradient text-white">
+                        <div class="w-25% d-flex justify-content-between">
+                            <a href="#" class="alert-link text-white p-1 mx-1"><i class="bi bi-download"></i></a>
+                            <a href="#" class="alert-link text-white p-1 mx-1"><i class="bi bi-volume-mute"></i></a>
+                            <a href="#" class="alert-link text-white p-1 mx-1"><i class="bi bi-x-circle"></i></a>
+                        </div>
+                    </div>
+                    <img src="{% static 'store/img/Shot.jpg'%}" class="card-img-top rounded-bottom" alt="...">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

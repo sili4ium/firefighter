@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} Map {% endblock %}
+{% block content %}
+<div class="container-fluid py-4">
+      <div class="row gy-3">
+        <div class="col-12 justify-content-center position-relative">
+            <img src="{% static 'map/img/objects.jpeg' %}" class="img-fluid" alt="...">
+            <a class="btn btn-danger position-absolute" style="top:30%; left:50%" href="{% url 'map_obj' obj='Obj-B' %}"><i class="bi bi-geo-alt-fill"></i>Obj-B</a>
+            <a class="btn btn-success position-absolute" style="top:60%; left:80%" href="{% url 'map_obj' obj='Obj-A' %}"><i class="bi bi-geo-alt-fill"></i>Obj-A</a>
+        </div>
+      </div>
+    </div>
+{% endblock %}

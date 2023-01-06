@@ -1,0 +1,47 @@
+<div class="col-3">
+          <div class="px-4 text-start">
+            {% for s in stations %}
+              {% if s == stat %}
+                <ul class="nav flex-column bg-dark text-white border border-white rounded bg-gradient mb-4">
+                  <li class="nav-item">
+                    <span class="nav-link active text-white" aria-current="page">{{ s }}</span>
+                  </li>
+                  <ul class="nav flex-column px-3">
+                    {% for k, v in dict.items %}
+                      {% if k == s %}
+                        {% for ar in v %}
+                          {% if ar == area %}
+                            <li class="nav-item bg-secondary text-white">
+                              <a class="nav-link active text-white" href="{% url 'monitor' obj=s area=ar%}">{{ ar }}</a>
+                            </li>
+                          {% else %}
+                            <li class="nav-item">
+                              <a class="nav-link text-white-50" href="{% url 'monitor' obj=s area=ar %}">{{ ar }}</a>
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </ul>
+              {% else %}
+                <ul class="nav flex-column bg-dark text-white rounded bg-gradient mb-4">
+                  <li class="nav-item">
+                    <span class="nav-link active text-white-50" aria-current="page">{{ s }}</span>
+                  </li>
+                  <ul class="nav flex-column px-3">
+                    {% for k, v in dict.items %}
+                      {% if k == s %}
+                        {% for ar in v %}
+                          <li class="nav-item">
+                            <a class="nav-link text-white-50" href="{% url 'monitor' obj=s area=ar %}">{{ ar }}</a>
+                          </li>
+                        {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </ul>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>

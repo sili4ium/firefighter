@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} Log {% endblock %}
+{% block content %}
+<div class="container-fluid py-4">
+      <div class="row gy-3">
+        {% include 'includes/selects.html' %}
+        <div class="col-9 justify-content-end">
+          <div class="row">
+            <div class="col-9">
+              <h5 class="d-inline-block ms-2 text-white">Журнал событий</h5>
+            </div>
+            <div class="col-3">
+              {% include 'includes/table_btns.html' %}
+            </div>
+          </div>
+          <div class="row p-4">
+            <table class="table table-dark table-hover table-striped table-responsive text-white text-center align-middle">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Дата</th>
+                  <th scope="col">Источник</th>
+                  <th scope="col">Сообщение</th>
+                  <th scope="col">Стоп-кадр</th>
+                  <th scope="col">Параметры</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+              {% for i in 'cat' %}
+                <tr>
+                  <th scope="row">
+                    {% if status == 0 %}
+                      <img src="{% static 'log/img/s.png' %}"/></th>
+                    {% elif status == 1 %}
+                       <img src="{% static 'log/img/w.png' %}"/>
+                    {% else %}
+                       <img src="{% static 'log/img/a.png' %}"/>
+                    {% endif %}
+                  <td>{{ Date }} {{ Time }}</td>
+                  <td>{{ Objj }} | {{ Area }}</td>
+                  <td>{{ Type }}</td>
+                  <td><img src="{% static 'log/img/Shot.jpg' %}" style="width: 100px;" class="img-fluid rounded mw-75" alt=""></td>
+                  <td>
+                    {% for p in params %}
+                    {{ p|safe }}
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

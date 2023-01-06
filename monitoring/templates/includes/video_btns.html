@@ -1,0 +1,22 @@
+<script src="../../../static/js/main.js"></script>
+<div class="col-4 text-end">
+  <a href="#" class="alert-link text-white p-1"><i class="bi bi-r-circle"></i></i></a>
+  <a href="#" class="alert-link text-white p-1"><i class="bi bi-volume-mute"></i></a>
+  <button type="button" class="btn btn-transparent text-white p-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+      class="bi bi-arrows-move"></i></button>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark bg-gradient text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CAMERA {{ stat.upper }} {{ area.upper }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body vw-75">
+        <img src="{{ v_url }}"
+                class="img-fluid border border-2 border-dark rounded" alt="...">
+      </div>
+
+    </div>
+  </div>
+</div>

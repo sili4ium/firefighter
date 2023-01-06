@@ -1,0 +1,42 @@
+<div class="col-3">
+  <form class="bg-dark text-white border-dark bg-gradient rounded p-1">
+    <h6 class="p-0 m-2"><i class="bi bi-fire"></i> Тип события</h6>
+    <hr>
+    <div class="form-check ms-4">
+      <input class="form-check-input bg-dark" type="checkbox" value="{{ Type_code_f|default:'first' }}" id="{{ Type_code_f|default:'first' }}">
+      <label class="form-check-label" for="{{ Type_code_f|default:'first' }}">{{ Type_f|default:'Первое' }}</label>
+    </div>
+    <div class="form-check ms-4">
+      <input class="form-check-input bg-dark" type="checkbox" value="{{ Type_code_s|default:'second' }}" id="{{ Type_code_s|default:'second' }}">
+      <label class="form-check-label" for="{{ Type_code_s|default:'second' }}">{{ Type_s|default:'Второе' }}</label>
+    </div>
+    <hr>
+    <h6 class="p-0 m-2"><i class="bi bi-calendar-week"></i> Период</h6>
+    <hr>
+    <div class="ms-4 mb-2">
+      <label for="From">С&nbsp;&nbsp;</label>
+      <input type="datetime-local" id="From" name="From_date" class="text-center border-0 bg-dark text-white-50" />
+    </div>
+    <div class="ms-4">
+      <label for="To">По</label>
+      <input type="datetime-local" id="To" name="To_date" class="text-center border-0 bg-dark text-white-50" />
+    </div>
+    <hr>
+    <h6 class="p-0 m-2"><i class="bi bi-geo-alt"></i> Объект</h6>
+    <hr>
+    <div class="ms-4">
+      <input class="form-control border-0 bg-dark text-white-50 w-auto" list="Object" id="exampleDataList"
+        placeholder="Введите объект">
+      <datalist id="Object">
+        <option value="{{ Obj|default:'Заправка А'}}">
+        <option value="Заправка В">
+        <option value="All">
+      </datalist>
+    </div>
+    <hr>
+    <div class="d-grid gap-2">
+      <button class="btn btn-dark bg-gradient ms-2 mb-1" type="submit">Показать</button>
+      <button class="btn btn-dark bg-gradient ms-2" type="submit" id="pdf">Скачать .pdf</button>
+    </div>
+  </form>
+</div>

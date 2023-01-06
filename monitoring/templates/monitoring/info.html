@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title%} Monitoring {% endblock %}
+{% block content %}
+<div class="container-fluid py-4">
+      <div class="row gy-3">
+        {% include 'includes/navbar.html' %}
+        <div class="col-9">
+          <div class="row py-3 justify-content-center">
+            <div class="col-5 bg-dark bg-gradient rounded p-0">
+              <div class="row alert alert-black text-white p-1 m-0">
+                <div class="col-8 m-0">CAMERA {{ stat.upper }} {{ area.upper }}</div>
+                {% include 'includes/video_btns.html' %}
+              </div>
+              <img src="https://in-bez.ru/upload/medialibrary/f2e/f2e202425573920f3edfb9df999f8a13.jpg" class="img-fluid border border-2 border-dark rounded" alt="...">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5 bg-dark bg-gradient rounded p-0">
+              <div class="row alert alert-black text-white p-1 m-0">
+                <div class="col-8 m-0">THERMAL {{ stat.upper }} {{ area.upper }}</div>
+                {% include 'includes/video_btns.html' %}
+              </div>
+              <img src="{{ v_url }}"
+                class="img-fluid border border-2 border-dark rounded" alt="...">
+            </div>
+          </div>
+          <div class="row justify-content-center mt-2">
+            <div class="col-11 text-center">
+              <table class="table table-dark table-responsive">
+                <thead class="table-dark table-bordered border-light">
+                  <tr>
+                    <th scope="col">Загазованность</th>
+                    <th scope="col">Задымленность</th>
+                    <th scope="col">Влажность</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="vertical-align:middle;">
+                    {% for p in params%}
+                      <td>{{ p|safe }}</td>
+                    {% endfor %}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
